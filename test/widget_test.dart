@@ -11,6 +11,15 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:git_action/main.dart';
 
 void main() {
+  testWidgets('display show text appbar', (widgetTester) async {
+    await widgetTester.pumpWidget(const MyApp());
+
+    expect(
+        find.descendant(
+            of: find.byType(AppBar),
+            matching: find.text('Flutter Demo Home Page 123')),
+        findsOneWidget);
+  });
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(const MyApp());
